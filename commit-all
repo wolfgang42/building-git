@@ -8,11 +8,13 @@ function get_tree() {
 	done
 }
 
-{
+commit=$({
 	echo "tree $(get_tree | git hash-object -t tree -w --stdin)"
-	echo "parent 1e277c0abe97b8c18cbb9662b3cc7b38491c1953"
+	test -e .git/refs/heads/master && echo "parent" $(cat .git/refs/heads/master)
 	echo "author Example Author <author@example.com> 0 +0000"
 	echo "committer Example Author <author@example.com> 0 +0000"
 	echo
 	cat # Read commit message from stdin
-} | git hash-object -t commit -w --stdin
+} | git hash-object -t commit -w --stdin)
+
+echo $commit > .git/refs/heads/master
