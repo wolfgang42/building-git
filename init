@@ -1,0 +1,9 @@
+#!/bin/bash
+set -e; set -u
+
+mkdir .git
+mkdir .git/branches
+mkdir .git/refs .git/refs/{tags,heads}
+mkdir .git/objects .git/objects/{info,pack}
+echo 'ref: refs/heads/master' > .git/HEAD
+
