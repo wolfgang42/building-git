@@ -10,6 +10,7 @@ function get_tree() {
 
 {
 	echo "tree $(get_tree | git hash-object -t tree -w --stdin)"
+	echo "parent 1e277c0abe97b8c18cbb9662b3cc7b38491c1953"
 	echo "author Example Author <author@example.com> 0 +0000"
 	echo "committer Example Author <author@example.com> 0 +0000"
 	echo
